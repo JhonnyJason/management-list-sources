@@ -1,0 +1,225 @@
+// overviewtable styles
+button-size = 22px
+
+@import '../../../node_modules/gridjs/dist/theme/mermaid.css'
+
+#overviewtable
+    position relative
+    width 100%
+
+.gridjs-container
+    box-sizing: border-box
+
+.gridjs-wrapper
+    background-color: white
+
+
+th.gridjs-th
+    padding 7px 17px
+    font-size: 12pt
+
+.gridjs-footer
+    padding-left 5px
+    padding-right 5px
+    height 50px
+    border-radius: 0 0 4px 4px  
+    
+.gridjs-pagination
+    vertical-align: middle
+    display: flex
+    justify-content: space-between
+
+.gridjs-summary
+    vertical-align: middle
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    font-size: 10pt
+    // width 200px
+    margin 0 !important
+
+.gridjs-pages
+    vertical-align: middle
+    display flex
+    // max-width: 100% 
+    margin-left: auto
+    
+.gridjs-pages > button
+    overflow: hidden
+    flex-shrink 2
+    font-size: 9pt
+    padding: 3px !important
+
+.gridjs-pages > button:first-child
+    flex-shrink 10
+    text-overflow: ellipsis
+
+.gridjs-pages > button:last-child
+    flex-shrink 10
+    text-overflow: ellipsis
+
+.c-table
+    max-width 100% !important
+    min-width calc(100% - 10px)
+
+table.gridjs-table
+    min-width 100%
+    overflow: hidden
+
+.gridjs-wrapper
+    border-radius: 4px 4px 0 0 
+    // max-height: var(--table-max-height)
+    height: var(--table-max-height) !important
+
+th.gridjs-th
+    background-color #F9FAFB
+    z-index 20
+
+tr.gridjs-tr:nth-child(2n)
+    background-color: alpha(cd-darkblue, 0.3)
+
+td.gridjs-td
+    background transparent
+    font-size: 12pt
+    vertical-align: middle
+    padding 6px 12px
+    height: fit-content
+
+
+
+// VPN 
+th.gridjs-th:nth-child(1) 
+td.gridjs-td:nth-child(1)
+    text-align: center
+    width 80px
+
+// DaMe Ids
+th.gridjs-th:nth-child(2) 
+td.gridjs-td:nth-child(2)
+    text-align: center
+    width 110px
+
+// Vorname
+th.gridjs-th:nth-child(3) 
+td.gridjs-td:nth-child(3)
+    width 180px
+
+// Name
+th.gridjs-th:nth-child(4) 
+td.gridjs-td:nth-child(4)
+    width 180px
+
+// Strasse
+th.gridjs-th:nth-child(5) 
+td.gridjs-td:nth-child(5)
+    width 320px
+
+// PLZ
+th.gridjs-th:nth-child(6) 
+td.gridjs-td:nth-child(6)
+    text-align: center
+    width 80px
+
+// Ort
+th.gridjs-th:nth-child(7) 
+td.gridjs-td:nth-child(7)
+    width 260px
+
+// Kur.V.
+th.gridjs-th:nth-child(8) 
+td.gridjs-td:nth-child(8)
+    width 100px
+
+// Expertise
+th.gridjs-th:nth-child(9) 
+td.gridjs-td:nth-child(9)
+    width 120px
+
+
+
+// th[data-column-id="vpnList"]
+//     width 90px
+// th[data-column-id="dameIds"]
+//     width 120px
+// th[data-column-id="first_name"]
+//     width 150px
+
+// th[data-column-id="name"]
+//     min-width 250px // does not work...
+// th:nth-child(5) // street
+//     min-width 350px // does not work...
+// th:nth-child(7) // city
+//     min-width 300px
+
+// th:nth-child(6) // zip
+//     width: 90px // does not work...
+// th:nth-child(8) // kurativer Vertrag
+//     width 70px
+
+// th:nth-child(9) // profession
+//     width 90px
+
+
+td[data-column-id="addresses"]
+    white-space: nowrap
+
+
+
+// @media screen and (max-width: 1510px)
+//     th[data-column-id="name"]
+//         width 250px
+//     th:nth-child(5) // street
+//         width 350px
+//     th:nth-child(7) // city
+//         width: 300px
+
+//- Tooltips
+
+.expertise-frame
+  position: relative;
+  display: inline-block;
+
+.expertise-frame .tooltip
+  visibility: hidden;
+  width: 180px;
+  background-color: rgba(40,60,95,0.7);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: -140px;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+.expertise-frame .tooltip::after
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 83%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(40,60,95,0.7) transparent transparent transparent;
+
+.expertise-frame:hover
+    text-decoration: underline
+
+.expertise-frame:hover .tooltip
+  visibility: visible;
+  opacity: 1;
+  z-index: 999
+
+
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+// .click-button
+// .click-button:hover
+//     overflow: hidden
+//     background-color: cd-turquoise
+//     color white
+//     padding 10px
+//     text-transform: uppercase    

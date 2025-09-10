@@ -1,23 +1,22 @@
-configmodule = {name: "configmodule", uimodule: false}
-############################################################
-#region printLogFunctions
-log = (arg) ->
-    if allModules.debugmodule.modulesToDebug["configmodule"]?  then console.log "[configmodule]: " + arg
-    return
-ostr = (obj) -> JSON.stringify(obj, null, 4)
-olog = (obj) -> log "\n" + ostr(obj)
-print = (arg) -> console.log(arg)
-#endregion
+export requestProvidersURL = "https://www.bilder-befunde.at/cockpit-api/api/v1/docvz/providers"
 
-########################################################
-configmodule.initialize = ->
-    log "configmodule.initialize"
-    return    
+# "https://extern.bilder-befunde.at/radmint-api/api/v1/docvz/providers" #extern demo
 
-########################################################
-#region exposedProperties
-configmodule.prop = true
+export requestStatsURL = "https://www.bilder-befunde.at/cockpit-api/api/v1/docvz/stats"
 
-#endregion
+# "https://extern.bilder-befunde.at/radmint-api/api/v1/docvz/stats" #extern demo
 
-export default configmodule
+
+# export requestRoute = "/providers"
+# export backendOptions = [
+#     "https://extern.bilder-befunde.at/cockpit-api/api/v1/docvz"
+#     "https://www.bilder-befunde.at/cockpit-api/api/v1/docvz"
+#     "https://extern.bilder-befunde.at/radmint-api/api/v1/docvz"
+#     "https://www.bilder-befunde.at/radmint-api/api/v1/docvz"
+#     # "https://extern.bilder-befunde.at/radmint/api/v1"
+#     # "https://www.bilder-befunde.at/radmint/api/v1"
+#     "https://localhost/radmint-api/api/v1/docvz"
+#     "http://localhost/radmint-api/api/v1/docvz"
+# ]
+
+export dataLoadPageSize = 1000

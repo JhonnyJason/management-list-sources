@@ -1,0 +1,22 @@
+//- header structure
+#header-inner
+    h1#user-name Dr. Master Nutzer
+    #display-options
+        label(for="display-options-select") Ansicht: 
+        select#display-options-select 
+            option#select-newcomers Anmeldung 
+            option#select-inprogress In Arbeit 
+            option#select-sent Versendet 
+            option#select-all ALLES 
+            option#select-openreport Befund offen 
+            option#select-openimages Bilder offen 
+            option#select-missingreport Befund fehlt 
+            option#select-bv BV
+
+    #release-buttons
+        button#release-report-button.click-button(disabled) BEFUND freigeben
+        button#release-images-button.click-button(disabled) BILDER freigeben 
+
+    #admin-options
+        select#admin-options-select
+            option#select-default Default

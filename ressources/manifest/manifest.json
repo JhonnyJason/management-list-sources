@@ -1,6 +1,6 @@
 {
-    "name": "New Website",
-    "short_name": "N",
+    "name": "Management List",
+    "short_name": "ManLi",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

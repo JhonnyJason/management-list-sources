@@ -5,20 +5,10 @@ import { createLogFunctions } from "thingy-debug"
 #endregion
 
 ############################################################
-import { 
-    dataLoadPageSize, 
-    requestProvidersURL, 
-    requestStatsURL 
-} from "./configmodule.js"
+import { requestDataListURL, dataLoadPageSize } from "./configmodule.js"
 
 ############################################################
 import *  as S from "./statemodule.js"
-
-############################################################
-import { expertiseList } from "./expertiselist.js"
-expertiseMap = {}
-expertiseMap[el.code] = el.description for el in expertiseList
-export expertiseMap = expertiseMap
 
 ############################################################
 currentData = []
@@ -57,7 +47,7 @@ retrieveCurrentData = (searchData) ->
     # { vpn,first_name, last_name, city, zip, expertise_id, isExact } = searchData
     { vpn, first_name, last_name, city, zip, expertise_id } = searchData
 
-    URL = requestProvidersURL
+    URL = requestDataListURL
 
     try
         allData = []
@@ -80,12 +70,6 @@ retrieveCurrentData = (searchData) ->
         # console.log(allData)
         return allData.flat()
     catch err then throw err
-
-############################################################
-export getStats = ->
-    URL = requestStatsURL
-    stats = await getData(URL)
-    return stats
 
 ############################################################
 export getCurrentData = -> currentData

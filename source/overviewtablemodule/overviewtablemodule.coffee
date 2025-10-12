@@ -50,8 +50,6 @@ renderTable = (dataPromise) ->
     height = "#{utl.getTableHeight()}px"
     rootStyle.setProperty("--table-max-height", height)
 
-
-
     log "create Table Object and render"
     if tableObj?
         tableObj = null

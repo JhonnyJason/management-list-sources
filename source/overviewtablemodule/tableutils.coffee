@@ -257,6 +257,14 @@ export getTableHeight = ->
 
 
 ############################################################
+##
+#{
+#1: { study_id, study_date, study_description, patient_id, patient_fullname, patient_dob, patient_ssn, patient_phone, referrer_id, referrer_fullname, report, report_date, images, images_date, account_status, date_created }
+#
+#
+#
+#
+# }
 export getColumnsObject = ->
 
     ############################################################

@@ -25,12 +25,14 @@ documentKeyDowned = (evnt) ->
     return
 
 resetButtonClicked = (evnt) ->
-    serversearchVpnInput.value = ""
-    serversearchFirstnameInput.value = ""
-    serversearchSurenameInput.value = ""
-    serversearchLocationInput.value = ""
-    serversearchPostcodeInput.value = ""
-    serversearchExpertiseInput.value = ""
+
+    serversearchStudyDateInput.value = ""
+    serversearchSurenameInput.value = "" 
+    serversearchFirstnameInput.value = "" 
+    serversearchSsnInput.value = "" 
+    serversearchDobInput.value = ""
+    serversearchDescriptionInput.value = "" 
+    serversearchReferrerInput.value = "" 
     
     serversearchErrorFeedback.innerHTML = ""
     data.resetData()
@@ -40,25 +42,28 @@ resetButtonClicked = (evnt) ->
 
 searchButtonClicked = (evnt) ->
     log "searchButtonClicked"
-    vpn = serversearchVpnInput.value
-    first_name = serversearchFirstnameInput.value
-    last_name = serversearchSurenameInput.value
-    city = serversearchLocationInput.value
-    zip = serversearchPostcodeInput.value
-    expertise_id = serversearchExpertiseInput.value
+
+    study_date = serversearchStudyDateInput.value
+    patient_name = serversearchSurenameInput.value
+    patient_firstname = serversearchFirstnameInput.value
+    patient_ssn = serversearchSsnInput.value
+    patient_dob = serversearchDobInput.value
+    study_description = serversearchDescriptionInput.value
+    referrer_fullname = serversearchReferrerInput.value
 
     # isExact = serversearchExactInput.checked
 
     # set undefined what is empty
-    if vpn.length == 0 then  vpn = undefined
-    if first_name.length == 0 then first_name = undefined 
-    if last_name.length == 0 then last_name = undefined 
-    if city.length == 0 then city = undefined 
-    if zip.length == 0 then zip = undefined 
-    if expertise_id.length == 0 then expertise_id = undefined 
+    if study_date.length == 0 then study_date = undefined
+    if patient_name.length == 0 then patient_name = undefined 
+    if patient_firstname.length == 0 then patient_firstname = undefined 
+    if patient_ssn.length == 0 then patient_ssn = undefined 
+    if patient_dob.length == 0 then patient_dob = undefined 
+    if study_description.length == 0 then study_description = undefined 
+    if referrer_fullname.length == 0 then referrer_fullname = undefined 
 
-
-    searchData = { vpn, first_name, last_name, city, zip, expertise_id }
+    searchData = { study_date, patient_name, patient_firstname, patient_ssn, patient_dob, study_description }
+    
     olog searchData
 
     data.triggerSearch(searchData)

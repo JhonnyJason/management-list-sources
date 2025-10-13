@@ -1,16 +1,20 @@
 //- serversearch structure
 #serversearch
+    #serversearch-error-feedback
     #serversearch-inputs
-        input#serversearch-vpn-input(type="text" placeholder="VPN")
-        input#serversearch-firstname-input(type="text" placeholder="Vorname")
-        input#serversearch-surename-input(type="text" placeholder="Name")
-        input#serversearch-postcode-input(type="text" placeholder="PLZ")
-        input#serversearch-location-input(type="text" placeholder="Ort")
-        input#serversearch-expertise-input(type="number" placeholder="Expertise Id")
+        .empty.cellel
+        input#serversearch-study-date-input.cellel(type="text" placeholder="Unt.Datum")
+        input#serversearch-surename-input.cellel(type="text" placeholder="Name")
+        input#serversearch-firstname-input.cellel(type="text" placeholder="Vorname")
+        input#serversearch-ssn-input.cellel(type="text" placeholder="SVNR")
+        input#serversearch-dob-input.cellel(type="text" placeholder="Geb.Datum")
+        input#serversearch-description-input.cellel(type="number" placeholder="Untersuchung")
+        .empty.cellel
+        input#serversearch-referrer-input.cellel(type="number" placeholder="Zuweiser")
+        .buttons.cellel
+            button#reset-button.click-button Reset
+            button#serversearch-button.click-button Suchen
     //- #serversearch-exact
     //-     label#serversearch-exact-label Exakte Suche
     //-     input#serversearch-exact-input(type="checkbox")
-    #serversearch-submit
-        span#serversearch-error-feedback
-        button#reset-button.click-button Reset
-        button#serversearch-button.click-button Suchen
+    //- #serversearch-submit

@@ -1,31 +1,29 @@
 // serversearch styles
 #serversearch
-    background-color rgba(0,0,0,0.2)
-    padding 5px
     #serversearch-inputs
-        margin-top: 5px
         display flex
-        width 100%
-        flex-wrap wrap
-        margin-bottom 5px
+        padding 0 2px
+
     #serversearch-inputs > *
-        flex-grow: 1
+        display: block
+
     input
         color cd-darkblue
-        padding: 7px
-        margin-right 3px
-        margin-bottom 3px
+        padding: 5px
+        box-sizing: border-box
         font-size: 12pt
-
-    #serversearch-exact
-        // display none
-        display block
+        border solid 1px cd-darkblue
     #serversearch-submit
         text-align: right
         // padding-bottom 5px
     #serversearch-error-feedback
         color red
         padding-right 7px
+        text-align: right
+        height 30px
+        line-height 30px
+        font-size 11pt
+
 
     .click-button
     .click-button:hover
@@ -33,9 +31,87 @@
         color white
         padding 10px
         text-transform: uppercase    
-        margin-bottom 5px
     .click-button:disabled
         color: #888
         background-color: #eee
         opacity 0.5
         cursor auto
+
+
+
+    // Row Select [ ]
+    .cellel:nth-child(1)
+        min-width  50px
+
+    // Unt.Datum
+    .cellel:nth-child(2) 
+        text-align: center
+        min-width 110px
+
+    // Name
+    .cellel:nth-child(3)
+        min-width 180px
+
+    // Vorname
+    .cellel:nth-child(4)
+        min-width 180px
+
+    // SVNR
+    .cellel:nth-child(5)
+        text-align: center
+        width 70px
+
+    // Geb.Datum
+    .cellel:nth-child(6)
+        text-align: center
+        min-width 110px
+
+    // Untersuchung
+    .cellel:nth-child(7)
+        min-width 180px
+
+    // middle Gap [report, images, account-status, telefon]
+    .cellel:nth-child(8)
+        min-width 270px
+
+    // Zuweiser
+    .cellel:nth-child(9)
+        min-width 180px
+
+    // end Gap
+    .cellel:nth-child(10)
+        min-width 200px
+    // Name
+    .cellel:nth-child(3)
+        min-width 180px
+
+    // Vorname
+    .cellel:nth-child(4)
+        min-width 180px
+
+    // SVNR
+    .cellel:nth-child(5)
+        min-width 70px
+
+    // Geb.Datum
+    .cellel:nth-child(6)
+        text-align: center
+        min-width 110px
+
+    // Untersuchung
+    .cellel:nth-child(7)
+        min-width 180px
+
+    // middle Gap [report, images, account-status, telefon]
+    .cellel:nth-child(8)
+        min-width 270px
+
+    // Zuweiser
+    .cellel:nth-child(9)
+        min-width 180px
+
+    // end Gap
+    .cellel:nth-child(10)
+        min-width 200px
+        text-align: right
+    

@@ -6,6 +6,7 @@ import { createLogFunctions } from "thingy-debug"
 
 ############################################################
 import { Grid, html} from "gridjs"
+import { RowSelection } from "gridjs/plugins/selection"
 
 ############################################################
 import { expertiseMap } from "./datamodule.js"
@@ -270,36 +271,29 @@ export getColumnsObject = ->
     ############################################################
     #region columnHeadObjects
 
-    # indexHeadObj = {
-    #     name: "",
-    #     id: "index",
-    #     sort: false,
-    #     hidden: true
-    # }
-
     ############################################################
-    vpnHeadObj = {
-        name: "VPN",
-        id: "vpnList",
-        autoWidth: true,
-        formatter: vpnFormatter
-        sort: {compare: vpnCompare}
-            
+    studyIdHeadObj = {
+        name: "",
+        id: "study_id",
+        sort: false,
+        hidden: true
     }
 
     ############################################################
-    daMeHeadObj = {
-        name: "DaMe Id",
-        id: "dameIds",
-        formatter: daMeFormatter
-        sort: {compare: daMeCompare}
+    selectHeadObj = {
+        name: ""
+        id: "selected"
+        sort: false,
+        plugin: {
+            component: RowSelection
+        }
     }
 
     ############################################################
-    firstnameHeadObj = {
-        name: "Vorname",
+    studyDateHeadObj = {
+        name: "Unt.Datum",
         id: "first_name",
-        formatter: firstnameFormatter
+        # formatter: firstnameFormatter
         sort: {compare: firstnameCompare}
     }
 
@@ -311,6 +305,107 @@ export getColumnsObject = ->
         sort: {compare: nameCompare}
     }
 
+    ############################################################
+    firstnameHeadObj = {
+        name: "Vorname",
+        id: "first_name",
+        formatter: firstnameFormatter
+        sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    svnrHeadObj = {
+        name: "SVNR"
+        id: "patient_ssn",
+        sort: false,
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+
+    }
+
+    ############################################################
+    dobHeadObject = {
+        name: "Geb.Datum"
+        id: "patient_dob"
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    descriptionHeadObject = {
+        name: "Untersuchung"
+        id: "study_description"
+        sort: false
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    reportHeadObject = {
+        name: ""
+        id: "report"
+        sort: false
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    imagesHeadObject = {
+        name: ""
+        id: "images"
+        sort: false
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    accountStatusHeadObject = {
+        name: ""
+        id: "account_status"
+        sort: false
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    phoneHeadObject = {
+        name: "Telefon"
+        id: "patient_phone"
+        sort: false
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    referrerHeadObject = {
+        name: "Zuweiser",
+        id: "referrer_fullname"
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+    ############################################################
+    dateHeadObject = {
+        name: "Datum",
+        id: "date_created"
+        # formatter: firstnameFormatter
+        # sort: {compare: firstnameCompare}
+    }
+
+
+    ############################################################
+    dropdownHeadObject = {
+        name: "",
+        id: "dropdown"
+        sort: false
+        plugin: {
+            component: {} ## TODO implement Dropdown Menu Plugin
+        }
+    }
+
+
+    ############################################################
+    #region deprecated head Objects
     ############################################################
     streetHeadObj = {
         name: "Straße",
@@ -357,10 +452,12 @@ export getColumnsObject = ->
     }
 
     #endregion
+    
+    #endregion
 
     # if state == "shareToDoctor0" then return [checkboxHeadObj, indexHeadObj, screeningDateHeadObj, nameHeadObj, svnHeadObj, birthdayHeadObj, descriptionHeadObj, radiologistHeadObj, sendingDateHeadObj]
 
-    return [vpnHeadObj, daMeHeadObj, firstnameHeadObj, nameHeadObj, streetHeadObj, postcodeHeadObj, locationHeadObj, kurContractHeadObj, expertisesHeadObj]
+    return [studyIdHeadObj, selectHeadObj, studyDateHeadObj, nameHeadObj, firstnameHeadObj, svnrHeadObj, dobHeadObject, descriptionHeadObject, reportHeadObject, imagesHeadObject, accountStatusHeadObject, phoneHeadObject, referrerHeadObject, dateHeadObject, dropdownHeadObject]
 
 export getLanguageObject = -> deDE
 

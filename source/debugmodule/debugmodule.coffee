@@ -7,7 +7,7 @@ export modulesToDebug = {
     # configmodule: true
     datamodule: true
     # headermodule: true
-    overviewtablemodule: true
+    # overviewtablemodule: true
     # tableutils: true
     # serversearchmodule: true
 

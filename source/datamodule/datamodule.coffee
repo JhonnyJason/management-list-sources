@@ -5,13 +5,45 @@ import { createLogFunctions } from "thingy-debug"
 #endregion
 
 ############################################################
-import { requestDataListURL, dataLoadPageSize } from "./configmodule.js"
+import { 
+    urlRequestDataList, urlRequestSummary, dataLoadPageSize
+} from "./configmodule.js"
 
 ############################################################
 import *  as S from "./statemodule.js"
 
 ############################################################
+summary = null
 currentData = []
+
+############################################################
+summaryRequestPeriodMS = 5000
+
+############################################################
+export initialize = (c) ->
+    log "initialize"
+    if c.summaryRequestPeriodMS? 
+        summaryRequestPeriodMS = c.summaryRequestPeriodMS
+
+    # setInterval(summaryRequest, summaryRequestPeriodMS)
+    summaryRequest()
+    return
+
+############################################################
+summaryRequest = ->
+    log "summaryRequest"
+    # dataRequest
+    # url = urlRequestDataList
+    # try list = await postRequest(url)
+    # catch err then console.error(err)
+    # olog { list }
+    # return
+
+    url = urlRequestSummary
+    try summary = await postRequest(url)
+    catch err then console.error(err)
+    olog { summary }
+    return
 
 ############################################################
 postRequest = (url, data) ->
@@ -27,6 +59,7 @@ postRequest = (url, data) ->
     try
         response = await fetch(url, options)
         if !response.ok then throw new Error("Response not ok - status: #{response.status}!")
+        if response.status == 204 then return null
         return response.json()
     catch err then throw new Error("Network Error: "+err.message)
 
@@ -46,7 +79,7 @@ getData = (url) ->
 retrieveCurrentData = (searchData) ->
     { study_date, patient_name, patient_firstname, patient_ssn, patient_dob, study_description } = searchData
 
-    URL = requestDataListURL
+    url = urlRequestDataList
 
     try
         allData = []
@@ -57,7 +90,7 @@ retrieveCurrentData = (searchData) ->
         
         loop
             requestData = { study_date, patient_name, patient_firstname, patient_ssn, patient_dob, study_description, page, page_size }
-            rawData = await postRequest(URL, requestData)
+            rawData = await postRequest(url, requestData)
 
             allData.push(rawData.providers) if Array.isArray(rawData.providers)
             receivedCount += rawData.count
@@ -71,6 +104,7 @@ retrieveCurrentData = (searchData) ->
     catch err then throw err
 
 ############################################################
+export getSummary = -> summary
 export getCurrentData = -> currentData
 
 export triggerSearch = (searchData) ->
